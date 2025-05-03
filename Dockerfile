@@ -13,7 +13,7 @@ RUN apk add --no-cache nodejs python3 py3-pip && \
 
 # 复制备份脚本
 COPY sync_data.sh .
-RUN chmod +x sync_data.sh
+RUN chmod +x /opt/app/sync_data.sh
 
 # 启动 Sub-Store 并在后台运行备份脚本
 CMD	./sync_data.sh && \
