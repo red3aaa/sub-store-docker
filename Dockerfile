@@ -1,7 +1,8 @@
 FROM xream/sub-store:latest
+run mkdir -p /opt/app/data
 
 WORKDIR /opt/app
-run mkdir -p /opt/app/data
+
 # 安装必要依赖
 RUN apk add --no-cache nodejs python3 py3-pip && \
     mkdir -p /opt/venv && \
