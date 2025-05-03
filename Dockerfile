@@ -17,7 +17,7 @@ RUN chmod +x /opt/app/sync_data.sh
 # 启动 Sub-Store 并在后台运行备份脚本
 CMD mkdir -p /opt/app/data && \
     cd /opt/app && \
-	/opt/app/sync_data.sh && \
+	./sync_data.sh && \
     SUB_STORE_BACKEND_API_HOST=127.0.0.1 \
     SUB_STORE_FRONTEND_HOST=0.0.0.0 \
     SUB_STORE_FRONTEND_PORT=7860 \
