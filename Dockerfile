@@ -15,6 +15,8 @@ RUN apk add --no-cache nodejs python3 py3-pip && \
 COPY sync_data.sh .
 RUN chmod +x /opt/app/sync_data.sh
 
+
+
 # 启动 Sub-Store 并在后台运行备份脚本
 CMD	./sync_data.sh && \
     SUB_STORE_BACKEND_API_HOST=127.0.0.1 \
