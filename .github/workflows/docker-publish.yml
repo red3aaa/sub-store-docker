@@ -2,6 +2,7 @@
 name: Build and Push Uptime Kuma to GHCR
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ] # 仅在 main 分支有 push 时触发
 
