@@ -1,6 +1,6 @@
 FROM xream/sub-store:latest
 run mkdir -p /opt/app/data
-
+ 
 WORKDIR /opt/app
 
 # 安装必要依赖
