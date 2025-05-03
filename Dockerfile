@@ -1,7 +1,7 @@
 FROM xream/sub-store:latest
 
 WORKDIR /opt/app
-
+run mkdir -p /opt/app/data
 # 安装必要依赖
 RUN apk add --no-cache nodejs python3 py3-pip && \
     mkdir -p /opt/venv && \
@@ -11,13 +11,11 @@ RUN apk add --no-cache nodejs python3 py3-pip && \
     chmod 777 -R /opt/app
 
 # 复制备份脚本
-COPY sync_data.sh /opt/app/sync_data.sh
-RUN chmod +x /opt/app/sync_data.sh
+COPY sync_data.sh .
+RUN chmod +x /sync_data.sh
 
 # 启动 Sub-Store 并在后台运行备份脚本
-CMD mkdir -p /opt/app/data && \
-    cd /opt/app && \
-	./sync_data.sh && \
+CMD	./sync_data.sh && \
     SUB_STORE_BACKEND_API_HOST=127.0.0.1 \
     SUB_STORE_FRONTEND_HOST=0.0.0.0 \
     SUB_STORE_FRONTEND_PORT=7860 \
