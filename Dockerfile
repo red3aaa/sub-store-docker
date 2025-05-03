@@ -1,6 +1,6 @@
 FROM xream/sub-store:latest
 run mkdir -p /opt/app/data
- 
+
 WORKDIR /opt/app
 
 # 安装必要依赖
@@ -15,7 +15,7 @@ RUN apk add --no-cache nodejs python3 py3-pip && \
 COPY sync_data.sh .
 RUN chmod +x /opt/app/sync_data.sh
 copy start.sh .
-
+run chmod +x start.sh
 
 # 启动 Sub-Store 并在后台运行备份脚本
 CMD	./start.sh
